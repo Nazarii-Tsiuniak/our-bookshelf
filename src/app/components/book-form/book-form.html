@@ -1,0 +1,13 @@
+<h2>Додати книгу</h2>
+<form (ngSubmit)="submit()">
+  <label>Назва:
+    <input [(ngModel)]="title" name="title">
+  </label>
+  <br>
+  <label>Автор:
+    <input [(ngModel)]="author" name="author">
+  </label>
+  <br>
+  <button type="submit">Додати</button>
+</form>
+<a [routerLink]="['/books']">Назад до списку</a>
