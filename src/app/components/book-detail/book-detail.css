@@ -1,2 +1,36 @@
-p { font-weight: bold; }
-a { color: blue; text-decoration: none; }
+.detail-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.detail-container h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.detail-container h4 {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.detail-container p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.detail-container a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.detail-container a:hover {
+  text-decoration: underline;
+}

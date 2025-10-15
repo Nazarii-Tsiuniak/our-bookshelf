@@ -1,3 +1,6 @@
-<h2>Деталі книги</h2>
-<p *ngIf="bookId">ID книги: {{ bookId }}</p>
-<a [routerLink]="['/books']">Назад до списку</a>
+<div *ngIf="book" class="detail-container">
+  <h2>{{ book.title }}</h2>
+  <h4>Автор: {{ book.author }}</h4>
+  <p>{{ book.description }}</p>
+  <a routerLink="/">← Назад до списку книг</a>
+</div>
