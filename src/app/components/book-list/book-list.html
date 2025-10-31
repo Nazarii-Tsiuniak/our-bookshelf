@@ -4,12 +4,26 @@
     <option value="title">Сортувати за назвою</option>
     <option value="author">Сортувати за автором</option>
   </select>
+
+  <select [(ngModel)]="languageFilter">
+    <option value="all">Усі книги</option>
+    <option value="uk">Українські</option>
+    <option value="en">Англійські</option>
+  </select>
+
+  <button [routerLink]="['/add']">➕ Додати книгу</button>
 </div>
 
 <div class="book-container">
   <div class="card" *ngFor="let book of filteredBooks">
     <h3><a [routerLink]="['/book', book.id]">{{ book.title }}</a></h3>
     <p>Автор: {{ book.author }}</p>
+    <p>{{ book.description }}</p>
+    <p>Мова: {{ book.language === 'uk' ? 'Українська' : 'Англійська' }}</p>
+    <div class="actions">
+      <button [routerLink]="['/edit', book.id]">✏️ Редагувати</button>
+      <button (click)="deleteBook(book.id)">🗑️ Видалити</button>
+    </div>
   </div>
 </div>
 

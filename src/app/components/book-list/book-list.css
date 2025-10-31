@@ -1,64 +1,102 @@
 .book-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 24px;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
+  background: #fafafa;
+  min-height: 80vh;
 }
 
 .card {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  width: 220px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  width: 240px;
+  transition: all 0.3s ease;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .card h3 {
-  margin: 15px;
   font-size: 18px;
   color: #333;
+  margin-bottom: 8px;
 }
 
 .card h3 a {
   text-decoration: none;
   color: #ff9800;
+  transition: color 0.3s;
 }
 
 .card h3 a:hover {
-  text-decoration: underline;
+  color: #e68900;
 }
 
 .card p {
-  margin: 0 15px 15px 15px;
   font-size: 14px;
   color: #666;
+  margin: 4px 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.actions button {
+  border: none;
+  background: #ff9800;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.3s;
+}
+
+.actions button:hover {
+  background: #e68900;
 }
 
 .search-sort {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px 0;
 }
 
-input, select {
-  padding: 8px 12px;
-  border-radius: 6px;
+input, select, button {
+  padding: 10px 14px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   outline: none;
   font-size: 14px;
+  background: #fff;
 }
 
 input:focus, select:focus {
   border-color: #ff9800;
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.2);
+}
+
+button[routerLink] {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  transition: background 0.3s;
+}
+
+button[routerLink]:hover {
+  background: #e68900;
 }

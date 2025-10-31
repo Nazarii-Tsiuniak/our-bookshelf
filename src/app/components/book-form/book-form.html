@@ -1,16 +1,23 @@
-<div class="form-card">
-  <h2>Додати книгу</h2>
-  <form (ngSubmit)="submit()">
-    <label>Назва:
-      <input [(ngModel)]="title" name="title" required>
-    </label>
-    <label>Автор:
-      <input [(ngModel)]="author" name="author" required>
-    </label>
-    <label>Опис:
-      <textarea [(ngModel)]="description" name="description" rows="3"></textarea>
-    </label>
-    <button type="submit">Додати</button>
+<div class="form-container">
+  <h2>{{ isEdit ? 'Редагування книги' : 'Додавання книги' }}</h2>
+
+  <form (ngSubmit)="saveBook()">
+    <label>Назва:</label>
+    <input [(ngModel)]="book.title" name="title" required />
+
+    <label>Автор:</label>
+    <input [(ngModel)]="book.author" name="author" required />
+
+    <label>Опис:</label>
+    <textarea [(ngModel)]="book.description" name="description"></textarea>
+
+    <label>Мова книги:</label>
+    <select [(ngModel)]="book.language" name="language" required>
+      <option value="uk">Українська</option>
+      <option value="en">Англійська</option>
+    </select>
+
+    <button type="submit">{{ isEdit ? 'Зберегти' : 'Додати' }}</button>
+    <button type="button" (click)="router.navigate(['/'])">Скасувати</button>
   </form>
-  <a [routerLink]="['/books']">Назад до списку</a>
 </div>

@@ -1,35 +1,72 @@
-.form-card {
-  max-width: 500px;
-  margin: 24px auto;
-  padding: 24px;
-  background: #fdfdfd;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+.form-container {
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 28px 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.form-card label {
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
   display: block;
-  margin-bottom: 12px;
+  margin-top: 14px;
+  font-weight: bold;
+  color: #555;
 }
 
-.form-card input, .form-card textarea {
+input, textarea, select {
   width: 100%;
-  padding: 8px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   font-size: 14px;
-  margin-top: 4px;
+  outline: none;
   box-sizing: border-box;
 }
 
-.form-card button {
-  margin-top: 12px;
-  padding: 10px 16px;
-  font-size: 14px;
-  cursor: pointer;
+input:focus, textarea:focus, select:focus {
+  border-color: #ff9800;
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.2);
 }
 
-.form-card a {
-  display: inline-block;
-  margin-top: 12px;
-  text-decoration: none;
-  color: #007bff;
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  margin-top: 18px;
+  margin-right: 10px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+button[type="submit"] {
+  background: #ff9800;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background: #e68900;
+}
+
+button[type="button"] {
+  background: #ddd;
+  color: #333;
+}
+
+button[type="button"]:hover {
+  background: #ccc;
 }

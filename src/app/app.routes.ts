@@ -1,8 +1,11 @@
 import { Routes } from '@angular/router';
 import { BookListComponent } from './components/book-list/book-list';
+import { BookFormComponent } from './components/book-form/book-form';
 import { BookDetailComponent } from './components/book-detail/book-detail';
 
 export const routes: Routes = [
   { path: '', component: BookListComponent },
-  { path: 'book/:id', component: BookDetailComponent }
+  { path: 'add', component: BookFormComponent },
+  { path: 'edit/:id', component: BookFormComponent },
+  { path: 'book/:id', component: BookDetailComponent },
 ];
