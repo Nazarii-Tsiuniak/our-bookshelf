@@ -16,13 +16,14 @@
 
 <div class="book-container">
   <div class="card" *ngFor="let book of filteredBooks">
+    <img *ngIf="book.coverUrl" [src]="book.coverUrl" alt="{{book.title}}" class="cover">
     <h3><a [routerLink]="['/book', book.id]">{{ book.title }}</a></h3>
     <p>Автор: {{ book.author }}</p>
     <p>{{ book.description }}</p>
     <p>Мова: {{ book.language === 'uk' ? 'Українська' : 'Англійська' }}</p>
     <div class="actions">
       <button [routerLink]="['/edit', book.id]">✏️ Редагувати</button>
-      <button (click)="deleteBook(book.id)">🗑️ Видалити</button>
+      <button class="delete-btn" (click)="deleteBook(book.id)">🗑️</button>
     </div>
   </div>
 </div>

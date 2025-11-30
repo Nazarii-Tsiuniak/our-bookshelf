@@ -11,7 +11,7 @@
 .card {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
   width: 240px;
   transition: all 0.3s ease;
   padding: 16px;
@@ -22,13 +22,13 @@
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
 .card h3 {
   font-size: 18px;
   color: #333;
-  margin-bottom: 8px;
+  margin: 8px 0;
 }
 
 .card h3 a {
@@ -64,6 +64,11 @@
   transition: background 0.3s;
 }
 
+.actions .delete-btn {
+  padding: 4px 6px;
+  font-size: 12px;
+}
+
 .actions button:hover {
   background: #e68900;
 }
@@ -87,16 +92,12 @@ input, select, button {
 
 input:focus, select:focus {
   border-color: #ff9800;
-  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.2);
+  box-shadow: 0 0 0 3px rgba(255,152,0,0.2);
 }
 
-button[routerLink] {
-  background: #ff9800;
-  color: #fff;
-  border: none;
-  transition: background 0.3s;
-}
-
-button[routerLink]:hover {
-  background: #e68900;
+.cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
 }

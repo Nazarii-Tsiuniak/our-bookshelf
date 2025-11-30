@@ -1,6 +1,13 @@
-<div *ngIf="book" class="detail-container">
+<div class="detail-container" *ngIf="book">
   <h2>{{ book.title }}</h2>
-  <h4>Автор: {{ book.author }}</h4>
-  <p>{{ book.description }}</p>
-  <a routerLink="/">← Назад до списку книг</a>
+  <p><strong>Автор:</strong> {{ book.author }}</p>
+  <p><strong>Жанр:</strong> {{ book.genre }}</p>
+  <p><strong>Мова:</strong> {{ book.language === 'uk' ? 'Українська' : 'Англійська' }}</p>
+  <p><strong>Опис:</strong> {{ book.description }}</p>
+  <img *ngIf="book.coverUrl" [src]="book.coverUrl" alt="{{book.title}}" class="cover">
+
+  <div class="detail-actions">
+    <a [routerLink]="['/edit', book.id]">✏️ Редагувати</a>
+    <a [routerLink]="['/']">⬅️ Назад</a>
+  </div>
 </div>

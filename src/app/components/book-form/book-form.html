@@ -1,23 +1,30 @@
 <div class="form-container">
-  <h2>{{ isEdit ? 'Редагування книги' : 'Додавання книги' }}</h2>
-
-  <form (ngSubmit)="saveBook()">
+  <h2>{{ isEdit ? 'Редагувати книгу' : 'Додати книгу' }}</h2>
+  <form (ngSubmit)="save()">
     <label>Назва:</label>
-    <input [(ngModel)]="book.title" name="title" required />
+    <input type="text" [(ngModel)]="book.title" name="title" required>
 
     <label>Автор:</label>
-    <input [(ngModel)]="book.author" name="author" required />
+    <input type="text" [(ngModel)]="book.author" name="author" required>
 
     <label>Опис:</label>
-    <textarea [(ngModel)]="book.description" name="description"></textarea>
+    <textarea [(ngModel)]="book.description" name="description" rows="4" required></textarea>
 
-    <label>Мова книги:</label>
-    <select [(ngModel)]="book.language" name="language" required>
+    <label>Мова:</label>
+    <select [(ngModel)]="book.language" name="language">
       <option value="uk">Українська</option>
       <option value="en">Англійська</option>
     </select>
 
-    <button type="submit">{{ isEdit ? 'Зберегти' : 'Додати' }}</button>
-    <button type="button" (click)="router.navigate(['/'])">Скасувати</button>
+    <label>Жанр:</label>
+    <input type="text" [(ngModel)]="book.genre" name="genre">
+
+    <label>Обкладинка (URL):</label>
+    <input type="text" [(ngModel)]="book.coverUrl" name="coverUrl">
+
+    <div class="form-actions">
+      <button type="submit">{{ isEdit ? 'Зберегти' : 'Додати' }}</button>
+      <button type="button" [routerLink]="['/']">❌ Відмінити</button>
+    </div>
   </form>
 </div>

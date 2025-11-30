@@ -7,12 +7,15 @@ interface Book {
   title: string;
   author: string;
   description: string;
+  language: 'uk' | 'en';
+  genre: string;
+  coverUrl?: string;
 }
 
 @Component({
   selector: 'book-detail',
   standalone: true,
-  imports: [NgIf, RouterLink],
+  imports: [NgIf, RouterLink],  // ⬅ сюди NgIf додано
   templateUrl: './book-detail.html',
   styleUrls: ['./book-detail.css']
 })
@@ -20,8 +23,8 @@ export class BookDetailComponent {
   book: Book | undefined;
 
   constructor(private route: ActivatedRoute) {
-    const books = JSON.parse(localStorage.getItem('books') || '[]');
+    const books: Book[] = JSON.parse(localStorage.getItem('books') || '[]');
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.book = books.find((b: Book) => b.id === id);
+    this.book = books.find(b => b.id === id);
   }
 }
