@@ -15,15 +15,37 @@
 </div>
 
 <div class="book-container">
-  <div class="card" *ngFor="let book of filteredBooks">
-    <img *ngIf="book.coverUrl" [src]="book.coverUrl" alt="{{book.title}}" class="cover">
-    <h3><a [routerLink]="['/book', book.id]">{{ book.title }}</a></h3>
+  <div
+    class="card"
+    *ngFor="let book of filteredBooks"
+    [routerLink]="['/book', book.id]"
+  >
+    <img
+      *ngIf="book.coverUrl"
+      [src]="book.coverUrl"
+      alt="{{book.title}}"
+      class="cover"
+    />
+
+    <h3>{{ book.title }}</h3>
     <p>Автор: {{ book.author }}</p>
     <p>{{ book.description }}</p>
     <p>Мова: {{ book.language === 'uk' ? 'Українська' : 'Англійська' }}</p>
+
     <div class="actions">
-      <button [routerLink]="['/edit', book.id]">✏️ Редагувати</button>
-      <button class="delete-btn" (click)="deleteBook(book.id)">🗑️</button>
+      <button
+        [routerLink]="['/edit', book.id]"
+        (click)="$event.stopPropagation()"
+      >
+        ✏️ Редагувати
+      </button>
+
+      <button
+        class="delete-btn"
+        (click)="deleteBook(book.id); $event.stopPropagation()"
+      >
+        🗑️
+      </button>
     </div>
   </div>
 </div>

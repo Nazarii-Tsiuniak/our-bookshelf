@@ -7,7 +7,7 @@ describe('BookDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BookDetailComponent] // ✅ standalone компонент
+      imports: [BookDetailComponent] 
     }).compileComponents();
 
     fixture = TestBed.createComponent(BookDetailComponent);

@@ -1,5 +1,5 @@
 <div class="form-container">
-  <h2>Додати книгу</h2>
+  <h2>{{ isEditMode ? 'Редагувати книгу' : 'Додати книгу' }}</h2>
 
   <form (ngSubmit)="save()">
     <label>
