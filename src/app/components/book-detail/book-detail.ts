@@ -15,7 +15,7 @@ interface Book {
 @Component({
   selector: 'book-detail',
   standalone: true,
-  imports: [NgIf, RouterLink],  // ⬅ сюди NgIf додано
+  imports: [NgIf, RouterLink],  
   templateUrl: './book-detail.html',
   styleUrls: ['./book-detail.css']
 })

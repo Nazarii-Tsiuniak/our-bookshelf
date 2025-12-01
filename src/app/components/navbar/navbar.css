@@ -2,20 +2,22 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ff9800;
-  padding: 14px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #ff8f00, #ffb74d);
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border-radius: 0 0 20px 20px;
 }
 
 nav a {
   color: white;
-  margin: 0 14px;
+  margin: 0 18px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 15px;
-  transition: opacity 0.3s;
+  font-size: 16px;
+  transition: all 0.3s;
 }
 
 nav a:hover {
-  opacity: 0.8;
+  opacity: 0.85;
+  transform: scale(1.05);
 }

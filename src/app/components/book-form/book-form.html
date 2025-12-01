@@ -1,29 +1,42 @@
 <div class="form-container">
-  <h2>{{ isEdit ? 'Редагувати книгу' : 'Додати книгу' }}</h2>
+  <h2>Додати книгу</h2>
+
   <form (ngSubmit)="save()">
-    <label>Назва:</label>
-    <input type="text" [(ngModel)]="book.title" name="title" required>
+    <label>
+      Назва
+      <input type="text" [(ngModel)]="book.title" name="title" required>
+    </label>
 
-    <label>Автор:</label>
-    <input type="text" [(ngModel)]="book.author" name="author" required>
+    <label>
+      Автор
+      <input type="text" [(ngModel)]="book.author" name="author" required>
+    </label>
 
-    <label>Опис:</label>
-    <textarea [(ngModel)]="book.description" name="description" rows="4" required></textarea>
+    <label>
+      Опис
+      <textarea [(ngModel)]="book.description" name="description" rows="4"></textarea>
+    </label>
 
-    <label>Мова:</label>
-    <select [(ngModel)]="book.language" name="language">
-      <option value="uk">Українська</option>
-      <option value="en">Англійська</option>
-    </select>
+    <label>
+      Мова
+      <select [(ngModel)]="book.language" name="language">
+        <option value="uk">Українська</option>
+        <option value="en">Англійська</option>
+      </select>
+    </label>
 
-    <label>Жанр:</label>
-    <input type="text" [(ngModel)]="book.genre" name="genre">
+    <label>
+      Жанр
+      <input type="text" [(ngModel)]="book.genre" name="genre">
+    </label>
 
-    <label>Обкладинка (URL):</label>
-    <input type="text" [(ngModel)]="book.coverUrl" name="coverUrl">
+    <label>
+      Посилання на обкладинку
+      <input type="text" [(ngModel)]="book.coverUrl" name="coverUrl" placeholder="assets/covers/1.jpg">
+    </label>
 
     <div class="form-actions">
-      <button type="submit">{{ isEdit ? 'Зберегти' : 'Додати' }}</button>
+      <button type="submit">💾 Зберегти</button>
       <button type="button" [routerLink]="['/']">❌ Відмінити</button>
     </div>
   </form>
