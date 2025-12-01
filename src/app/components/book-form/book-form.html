@@ -32,8 +32,20 @@
 
     <label>
       Посилання на обкладинку
-      <input type="text" [(ngModel)]="book.coverUrl" name="coverUrl" placeholder="assets/covers/1.jpg">
+      <input type="text"
+             [(ngModel)]="book.coverUrl"
+             name="coverUrl"
+             placeholder="https://example.com/cover.jpg або assets/covers/1.jpg"
+             (input)="onImageLoad()"
+      >
     </label>
+
+    <!-- Прев’ю картинки -->
+    <div *ngIf="book.coverUrl" class="cover-preview-wrapper">
+      <p>Прев’ю обкладинки:</p>
+      <img [src]="book.coverUrl" alt="Cover Preview" class="cover-preview" (error)="onImageError()">
+      <p *ngIf="imageError" class="error-text">⚠️ Невірне посилання або формат картинки</p>
+    </div>
 
     <div class="form-actions">
       <button type="submit">💾 Зберегти</button>

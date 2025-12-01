@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { CommonModule, NgIf } from '@angular/common'; // для *ngIf
 
 interface Book {
   id: number;
@@ -15,7 +16,7 @@ interface Book {
 @Component({
   selector: 'book-form',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, CommonModule, NgIf],
   templateUrl: './book-form.html',
   styleUrls: ['./book-form.css']
 })
@@ -30,7 +31,8 @@ export class BookFormComponent implements OnInit {
     coverUrl: ''
   };
 
-  isEditMode = false; // ← режим: додавання чи редагування
+  isEditMode = false;
+  imageError = false; // прапорець помилки зображення
 
   constructor(
     private router: Router,
@@ -41,7 +43,6 @@ export class BookFormComponent implements OnInit {
     const idParam = this.route.snapshot.paramMap.get('id');
 
     if (idParam) {
-      // 🔧 Режим редагування
       this.isEditMode = true;
       const id = Number(idParam);
 
@@ -51,16 +52,12 @@ export class BookFormComponent implements OnInit {
       const existingBook = books.find(b => b.id === id);
 
       if (existingBook) {
-        // створюємо копію, щоб не міняти об'єкт напряму
         this.book = { ...existingBook };
       } else {
-        // якщо книги з таким id немає — повертаємо на список
         this.router.navigate(['/']);
       }
     } else {
-      // 🆕 Режим додавання
       this.isEditMode = false;
-      // залишаємо book з дефолтними значеннями
     }
   }
 
@@ -69,19 +66,26 @@ export class BookFormComponent implements OnInit {
     const books: Book[] = stored ? JSON.parse(stored) : [];
 
     if (this.isEditMode) {
-      // 🔧 Оновлення існуючої книги
       const index = books.findIndex(b => b.id === this.book.id);
-
       if (index !== -1) {
         books[index] = { ...this.book };
       }
     } else {
-      // 🆕 Додавання нової книги
       this.book.id = books.length ? Math.max(...books.map(b => b.id)) + 1 : 1;
       books.push(this.book);
     }
 
     localStorage.setItem('books', JSON.stringify(books));
     this.router.navigate(['/']);
+  }
+
+  // спрацьовує якщо картинка не завантажилась
+  onImageError() {
+    this.imageError = true;
+  }
+
+  // спрацьовує якщо користувач змінив URL і хочемо зняти попередню помилку
+  onImageLoad() {
+    this.imageError = false;
   }
 }

@@ -64,3 +64,14 @@ button:hover {
   background: linear-gradient(135deg, #ff6f00, #ffa726);
   transform: translateY(-2px);
 }
+.cover-preview-wrapper {
+  margin: 10px 0;
+}
+
+.cover-preview {
+  max-width: 150px;
+  max-height: 200px;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
